@@ -1,0 +1,29 @@
+# RISC-V 64-bit Processor - GHDL build & simulation
+GHDL     = ghdl
+GHDLFLAGS= --std=08
+
+SRCS = riscv64_pkg.vhd \
+       regfile.vhd      \
+       decoder.vhd      \
+       alu.vhd          \
+       branch_unit.vhd  \
+       mem_interface.vhd\
+       hazard_unit.vhd  \
+       riscv64_core.vhd \
+       riscv64_tb.vhd
+
+all: sim
+
+analyze:
+	$(GHDL) -a $(GHDLFLAGS) $(SRCS)
+
+elaborate: analyze
+	$(GHDL) -e $(GHDLFLAGS) riscv64_tb
+
+sim: elaborate
+	$(GHDL) -r $(GHDLFLAGS) riscv64_tb --vcd=wave.vcd --stop-time=10us
+
+clean:
+	rm -f *.o *.cf wave.vcd
+
+.PHONY: all analyze elaborate sim clean
