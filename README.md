@@ -57,7 +57,7 @@ All simulation results below were derived from the testbench program in `riscv64
 
 The diagram below shows how each instruction flows through the 5 pipeline stages cycle by cycle. You can clearly see the pipeline filling up during the first few cycles, operating at full throughput during the arithmetic section, and then the disruptions caused by the load-use hazard and the taken branch.
 
-![Pipeline Timing](images/pipeline_timing.png)
+![Pipeline Timing](../images/pipeline_timing.png)
 
 The two highlighted events:
 - **STALL** — inserted between `LD x19, 0(x18)` and `BEQ x3, x19, +8`. The LD result isn't available at the end of EX, so the hazard unit freezes IF/ID for one cycle and inserts a bubble into EX.
@@ -69,7 +69,7 @@ The two highlighted events:
 
 The waveform shows the six most important top-level signals over the full simulation run (0–320 ns).
 
-![RTL Waveform](sim_images/waveform_signals.png)
+![RTL Waveform](../images/waveform_signals.png)
 
 **Reading the waveform:**
 - `rst` is asserted for the first 25 ns (2.5 cycles), then deasserts and normal execution begins
@@ -84,7 +84,7 @@ The waveform shows the six most important top-level signals over the full simula
 
 This plot shows the program counter value on a cycle-by-cycle basis, making the control flow events easy to spot.
 
-![PC Trace](sim_images/pc_trace.png)
+![PC Trace](../images/pc_trace.png)
 
 Three notable events appear on the trace:
 
@@ -98,7 +98,7 @@ Three notable events appear on the trace:
 
 Every register written during the testbench program, shown on a log scale to keep both small values (0, 1) and large values (0xABCDE000) visible side by side.
 
-![Register Writeback Values](sim_images/register_writeback.png)
+![Register Writeback Values](../images/register_writeback.png)
 
 All 24 destination registers reach their expected values, confirming correct operation across all instruction classes. Colour coding matches the instruction type — M-extension results (x15, x16, x17, x25) are shown in green.
 
@@ -108,7 +108,7 @@ All 24 destination registers reach their expected values, confirming correct ope
 
 A per-operation breakdown of every ALU computation in the testbench, showing operand values and results. M-extension operations are badged separately.
 
-![ALU Operations](sim_images/alu_operations.png)
+![ALU Operations](../images/alu_operations.png)
 
 Key results:
 - `MUL x15 = 42 × 10 = 420` ✓
@@ -123,7 +123,7 @@ Key results:
 
 The left panel shows the three forwarding paths implemented by the hazard unit. The right panel breaks down the 36-cycle total run into its components.
 
-![Hazard & Forwarding](sim_images/hazard_forwarding.png)
+![Hazard & Forwarding](../images/hazard_forwarding.png)
 
 **Forwarding paths:**
 - `fwd_a/b = 10` — forward from EX/MEM stage (result available one cycle early)
@@ -216,7 +216,7 @@ riscv-64-vhdl-main/
 ├── riscv64_tb.vhdl         # Self-checking testbench
 ├── Makefile.txt            # Build script (rename to Makefile)
 │
-└── sim_images/
+└── images/
     ├── pipeline_timing.png     # Stage-by-stage pipeline diagram
     ├── waveform_signals.png    # clk/rst/PC/stall/branch/trap waveform
     ├── pc_trace.png            # PC value over time
