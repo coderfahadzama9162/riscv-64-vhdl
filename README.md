@@ -57,7 +57,7 @@ All simulation results below were derived from the testbench program in `riscv64
 
 The diagram below shows how each instruction flows through the 5 pipeline stages cycle by cycle. You can clearly see the pipeline filling up during the first few cycles, operating at full throughput during the arithmetic section, and then the disruptions caused by the load-use hazard and the taken branch.
 
-![Pipeline Timing](../images/pipeline_timing.png)
+![Pipeline Timing](images/pipeline_timing.png)
 
 The two highlighted events:
 - **STALL** — inserted between `LD x19, 0(x18)` and `BEQ x3, x19, +8`. The LD result isn't available at the end of EX, so the hazard unit freezes IF/ID for one cycle and inserts a bubble into EX.
@@ -216,7 +216,7 @@ riscv-64-vhdl-main/
 ├── riscv64_tb.vhdl         # Self-checking testbench
 ├── Makefile.txt            # Build script (rename to Makefile)
 │
-└── sim_images/
+└── images/
     ├── pipeline_timing.png     # Stage-by-stage pipeline diagram
     ├── waveform_signals.png    # clk/rst/PC/stall/branch/trap waveform
     ├── pc_trace.png            # PC value over time
