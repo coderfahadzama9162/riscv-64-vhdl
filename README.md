@@ -69,7 +69,7 @@ The two highlighted events:
 
 The waveform shows the six most important top-level signals over the full simulation run (0–320 ns).
 
-![RTL Waveform](../images/waveform_signals.png)
+![RTL Waveform](images/waveform_signals.png)
 
 **Reading the waveform:**
 - `rst` is asserted for the first 25 ns (2.5 cycles), then deasserts and normal execution begins
@@ -84,7 +84,7 @@ The waveform shows the six most important top-level signals over the full simula
 
 This plot shows the program counter value on a cycle-by-cycle basis, making the control flow events easy to spot.
 
-![PC Trace](../images/pc_trace.png)
+![PC Trace](images/pc_trace.png)
 
 Three notable events appear on the trace:
 
@@ -98,7 +98,7 @@ Three notable events appear on the trace:
 
 Every register written during the testbench program, shown on a log scale to keep both small values (0, 1) and large values (0xABCDE000) visible side by side.
 
-![Register Writeback Values](../images/register_writeback.png)
+![Register Writeback Values](images/register_writeback.png)
 
 All 24 destination registers reach their expected values, confirming correct operation across all instruction classes. Colour coding matches the instruction type — M-extension results (x15, x16, x17, x25) are shown in green.
 
@@ -108,7 +108,7 @@ All 24 destination registers reach their expected values, confirming correct ope
 
 A per-operation breakdown of every ALU computation in the testbench, showing operand values and results. M-extension operations are badged separately.
 
-![ALU Operations](../images/alu_operations.png)
+![ALU Operations](images/alu_operations.png)
 
 Key results:
 - `MUL x15 = 42 × 10 = 420` ✓
@@ -123,7 +123,7 @@ Key results:
 
 The left panel shows the three forwarding paths implemented by the hazard unit. The right panel breaks down the 36-cycle total run into its components.
 
-![Hazard & Forwarding](../images/hazard_forwarding.png)
+![Hazard & Forwarding](images/hazard_forwarding.png)
 
 **Forwarding paths:**
 - `fwd_a/b = 10` — forward from EX/MEM stage (result available one cycle early)
