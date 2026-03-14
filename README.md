@@ -123,7 +123,7 @@ Key results:
 
 The left panel shows the three forwarding paths implemented by the hazard unit. The right panel breaks down the 36-cycle total run into its components.
 
-![Hazard & Forwarding](images\alu_operations.png)
+![Hazard & Forwarding](../images/hazard_forwarding.png)
 
 **Forwarding paths:**
 - `fwd_a/b = 10` — forward from EX/MEM stage (result available one cycle early)
