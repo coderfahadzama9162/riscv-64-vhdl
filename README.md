@@ -216,7 +216,7 @@ riscv-64-vhdl-main/
 ├── riscv64_tb.vhdl         # Self-checking testbench
 ├── Makefile.txt            # Build script (rename to Makefile)
 │
-└── images/
+└── sim_images/
     ├── pipeline_timing.png     # Stage-by-stage pipeline diagram
     ├── waveform_signals.png    # clk/rst/PC/stall/branch/trap waveform
     ├── pc_trace.png            # PC value over time
